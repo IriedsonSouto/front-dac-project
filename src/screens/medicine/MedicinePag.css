@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(209, 210, 211);
+  }
+  
+  header {
+    text-align: center;
+    background-color: #000;
+    color: rgb(209, 210, 211);
+  }
+  
+  .input-label{
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  .buttons{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+  
+  
+  .logo{
+    max-width:150px;
+    max-height:100px;
+    width: auto;
+    height: auto;
+  }
+  
