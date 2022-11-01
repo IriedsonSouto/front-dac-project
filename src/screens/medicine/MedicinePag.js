@@ -1,6 +1,6 @@
 import React from 'react';
 import './MedicinePag.css';
-import iconsyringe from'./iconsyringe.png'
+import iconmedicine from'./iconmedicine.png'
 
 export default class MedicinePag extends React.Component{
 
@@ -23,13 +23,13 @@ export default class MedicinePag extends React.Component{
     return (
       <div className="Pag">
         <header>
-          <img class="logo" src={iconsyringe} alt="Medicine Image"/>
+          <img class="logo" src={iconmedicine} alt="Medicine Image"/>
           <h1>Medicine Tela</h1>
         </header>
         <div class="input-label">
           <div className="form-group">
             <label className="col-form-label mt-4" for="inputDefault">Name:</label>
-            <input type="text" className="form-control" placeholder="Goat name" id="inputDefault" value = {this.state.name} onChange = {(e) => {this.setState({name: e.target.value})}}/>
+            <input type="text" className="form-control" placeholder="Medicine name" id="inputDefault" value = {this.state.name} onChange = {(e) => {this.setState({name: e.target.value})}}/>
             <br/>
 
             <label for="exampleTextarea" className="form-label mt-4">Description:</label>
