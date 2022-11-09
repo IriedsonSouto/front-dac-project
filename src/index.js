@@ -1,16 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import Medicine from './screens/medicine/MedicinePag';
-import Goat from './screens/goat/GoatPag';
-import Home from './screens/home/HomePag';
-import Aplication from './screens/aplication/AplicationPag'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Medicine/>
+    <App/>
   </React.StrictMode>
 );
 
