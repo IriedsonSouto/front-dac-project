@@ -1,0 +1,13 @@
+header {
+    text-align: center;
+    background-color: #000;
+}
+
+.title{
+    color: rgb(255, 255, 255);
+}
+
+.icon{
+    max-width:50px;
+    max-height:50px;
+}
