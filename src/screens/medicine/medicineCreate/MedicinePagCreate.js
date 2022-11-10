@@ -1,10 +1,10 @@
 import React from 'react';
-import './MedicinePag.css';
-import HeaderGroup from '../../componentes/HeaderGroup';
-import FormGroup from '../../componentes/FormGroup';
-import InputLabel from '../../componentes/InputLabel';
-import ButtonsGroup from '../../componentes/ButtonsGroup';
-import iconmedicine  from '../../icons/iconmedicine.png';
+import './MedicinePagCreate.css';
+import HeaderGroup from '../../../componentes/HeaderGroup';
+import FormGroup from '../../../componentes/FormGroup';
+import InputLabel from '../../../componentes/InputLabel';
+import ButtonsGroup from '../../../componentes/ButtonsGroup';
+import iconmedicine  from '../../../icons/iconmedicine.png';
 
 export default class MedicinePag extends React.Component{
 

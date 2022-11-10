@@ -1,11 +1,12 @@
 import React from 'react';
 import './GoatPag.css';
-import HeaderGroup from '../../componentes/HeaderGroup';
-import FormGroup from '../../componentes/FormGroup';
-import InputLabel from '../../componentes/InputLabel';
-import ButtonsGroup from '../../componentes/ButtonsGroup';
+import HeaderGroup from '../../../componentes/HeaderGroup';
+import FormGroup from '../../../componentes/FormGroup';
+import InputLabel from '../../../componentes/InputLabel';
+import ButtonsGroup from '../../../componentes/ButtonsGroup';
 import icongoat from '../../icons/icongoat.png';
-
+import axios from 'axios';
+import GoatTable from '../../../componentes/GoatTable';
 
 export default class GoatPag extends React.Component{
 
@@ -13,7 +14,8 @@ export default class GoatPag extends React.Component{
         nickname: "",
         gender: "",
         birthDay: "",
-        description: ""
+        description: "",
+        goats: []
     }
 
 
@@ -24,9 +26,9 @@ export default class GoatPag extends React.Component{
         this.setState({description: ""})
     }
 
-    print = () => {
-
+    create = async () => {
     }
+
 
   render() {
     return (
@@ -47,12 +49,11 @@ export default class GoatPag extends React.Component{
             </InputLabel>
         </FormGroup>
         <ButtonsGroup>
-            <button type="button" className="btn btn-success" onClick={this.print}>Create</button>
+            <button type="button" class="btn btn-info">Buscar</button>
+            <button type="button" className="btn btn-success" onClick={this.create}>Create</button>
             <button type="button" className="btn btn-warning" onClick={this.cancel}>Cancel</button>
         </ButtonsGroup>
     </div>
     );
   }
 }
-
-

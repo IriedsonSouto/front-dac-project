@@ -11,7 +11,8 @@ export default class HomePag extends React.Component{
       <div className="Pag">
         <HeaderGroup title = "Home Pag" icon ={iconhome} iname="Home Image"></HeaderGroup>
         <div className="description">
-            <img className="logo" src={logogoatmedicine} alt="logo Image"/>
+            <img className="logo" src={logogoatmedicine} alt="logo"/>
+            <h1>Goate Medicine is an application that aims to control the medicines applied to animals on a property.</h1>
         </div>
       </div>
     );
