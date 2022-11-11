@@ -5,15 +5,16 @@
   }
 
   .buttons{
-    width: 250px;
+    width: 350px;
     height: 250px;
-    margin-left: 20%;
+    margin-left: 12%;
     margin-right: 8%;
     max-width: 500px;
-}
+    }
 
   .btn{
     margin-top: 20px;
     margin-right: 10px;
     margin-left: 10px;
   }
+

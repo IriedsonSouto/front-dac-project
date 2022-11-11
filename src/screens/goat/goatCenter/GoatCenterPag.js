@@ -1,5 +1,5 @@
 import React from 'react';
-import './GoatPagFind.css';
+import './GoatCenterPag.css';
 import HeaderGroup from '../../../componentes/HeaderGroup';
 import FormGroup from '../../../componentes/FormGroup';
 import InputLabel from '../../../componentes/InputLabel';
@@ -9,7 +9,7 @@ import axios from 'axios';
 import GoatTable from '../../../componentes/GoatTable';
 import {withRouter} from 'react-router-dom';
 
-class GoatPagFind extends React.Component{
+class GoatCenterPag extends React.Component{
 
     state = {
         nickname: "",
@@ -27,16 +27,43 @@ class GoatPagFind extends React.Component{
         this.setState({description: ""})
     }
 
-    create = () => {
-        this.props.history.push('/goatfind');
+    create = async () => {
+        await axios.post('http://localhost:8080/api/goat',
+        {
+            nickname: this.state.nickname,
+            gender: this.state.gender,
+            birthDay: this.state.birthDay,
+            description: this.state.description,
+        })
+        .then(response =>
+        {
+            console.log(response);
+        })
+        .catch(error =>
+        {
+            console.log(error.response);
+        });
+    }
+
+    delete = async () => {
+        await axios.delete(`http://localhost:8080/api/goat/${this.state.id}`
+        )
+        .then(response =>
+        {
+            console.log(response);
+        })
+        .catch(error =>
+        {
+            console.log(error.response);
+        });
     }
 
 
   render() {
     return (
         <div className="Pag">
-        <HeaderGroup title = "Goat Center" icon ={icongoat} iname="Goat Image"></HeaderGroup>
         <FormGroup>
+        <HeaderGroup title = "Goat Center" icon ={icongoat} iname="Goat Image"></HeaderGroup>
             <InputLabel name="Nickname:">
             <input type="text" className="form-control" placeholder="Goat name" id="inputDefault" value = {this.state.nickname} onChange = {(e) => {this.setState({nickname: e.target.value})}}/>
             </InputLabel>
@@ -60,4 +87,4 @@ class GoatPagFind extends React.Component{
   }
 }
 
-export default withRouter(GoatPagFind);
+export default withRouter(GoatCenterPag);

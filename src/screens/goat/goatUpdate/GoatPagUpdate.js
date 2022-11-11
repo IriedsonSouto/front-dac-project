@@ -1,14 +1,11 @@
 import React from 'react';
-import './GoatPag.css';
 import HeaderGroup from '../../../componentes/HeaderGroup';
 import FormGroup from '../../../componentes/FormGroup';
 import InputLabel from '../../../componentes/InputLabel';
 import ButtonsGroup from '../../../componentes/ButtonsGroup';
-import icongoat from '../../icons/icongoat.png';
+import icongoat from '../../../icons/icongoat.png';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
-
-
 
 class GoatPagUpdate extends React.Component{
 
@@ -43,19 +40,6 @@ class GoatPagUpdate extends React.Component{
         });
     }
 
-    delete = async () => {
-        await axios.delete(`http://localhost:8080/api/goat/${this.state.id}`
-        )
-        .then(response =>
-        {
-            console.log(response);
-        })
-        .catch(error =>
-        {
-            console.log(error.response);
-        });
-    }
-
   render() {
     return (
         <div className="Pag">
@@ -80,7 +64,6 @@ class GoatPagUpdate extends React.Component{
         <ButtonsGroup>
             <button type="button" className="btn btn-primary" onClick={this.update}>Update</button>
             <button type="button" className="btn btn-warning" onClick={this.cancel}>Cancel</button>
-            <button type="button" className="btn btn-danger" onClick={this.delete}>Delete</button>
         </ButtonsGroup>
     </div>
     );
