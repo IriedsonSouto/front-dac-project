@@ -1,8 +1,9 @@
 import React from 'react'
 
 export default props => {
-    const rows = props.goats.map( goat => {
-        return (
+
+    const rows = props.goat.map(goat => {
+        return(
             <tr key={goat.id}>
                 <td>{goat.id}</td>
                 <td>{goat.nickname}</td>

@@ -1,14 +1,15 @@
 import React from 'react';
-import './GoatPagCreate.css';
+import './GoatPagCreate.css'
 import HeaderGroup from '../../../componentes/HeaderGroup';
+import PagGroup from '../../../componentes/PagGroup';
 import FormGroup from '../../../componentes/FormGroup';
 import InputLabel from '../../../componentes/InputLabel';
 import ButtonsGroup from '../../../componentes/ButtonsGroup';
 import icongoat from '../../../icons/icongoat.png';
 import axios from 'axios';
-import GoatTable from '../../../componentes/GoatTable';
+import {withRouter} from 'react-router-dom';
 
-export default class GoatPag extends React.Component{
+class GoatPagCreate extends React.Component{
 
     state = {
         nickname: "",
@@ -19,10 +20,7 @@ export default class GoatPag extends React.Component{
 
 
     cancel = () => {
-        this.setState({nickname: ""})
-        this.setState({gender: ""})
-        this.setState({birthDay: ""})
-        this.setState({description: ""})
+        this.props.history.push('/goat');
     }
 
     create = async () => {
@@ -45,9 +43,9 @@ export default class GoatPag extends React.Component{
 
   render() {
     return (
-        <div className="Pag">
-        <HeaderGroup title = "Goat Pag" icon ={icongoat} iname="Goat Image"></HeaderGroup>
+    <PagGroup>
         <FormGroup>
+        <HeaderGroup title = "Goat Center" icon ={icongoat} iname="Goat Image"></HeaderGroup>
             <InputLabel name="Nickname:">
             <input type="text" className="form-control" placeholder="Goat name" id="inputDefault" value = {this.state.nickname} onChange = {(e) => {this.setState({nickname: e.target.value})}}/>
             </InputLabel>
@@ -65,9 +63,11 @@ export default class GoatPag extends React.Component{
             <button type="button" className="btn btn-success" onClick={this.create}>Create</button>
             <button type="button" className="btn btn-warning" onClick={this.cancel}>Cancel</button>
         </ButtonsGroup>
-    </div>
+    </PagGroup>
     );
   }
 }
+
+export default withRouter(GoatPagCreate);
 
 

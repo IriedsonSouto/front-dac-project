@@ -5,8 +5,9 @@ import FormGroup from '../../../componentes/FormGroup';
 import InputLabel from '../../../componentes/InputLabel';
 import ButtonsGroup from '../../../componentes/ButtonsGroup';
 import iconsyringe from '../../../icons/iconsyringe.png';
+import {withRouter} from 'react-router-dom';
 
-export default class MedicinePag extends React.Component{
+class AplicationPagCreate extends React.Component{
 
   state = {
     aplicationMode: "",
@@ -53,5 +54,7 @@ export default class MedicinePag extends React.Component{
     );
   }
 }
+
+export default withRouter(AplicationPagCreate);
 
 

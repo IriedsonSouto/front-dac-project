@@ -3,6 +3,13 @@
     padding:0;
     text-decoration: none;
 }
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(228, 216, 107);
+  }
+
 .container{
     margin-left: 0px;
     padding:0;
@@ -21,9 +28,6 @@ main{
     display: flex;
     align-items:center;
     padding:31.5px 15px;
-}
-.logo{
-    font-size: 30px;
 }
 .bars{
     display: flex;

@@ -5,8 +5,9 @@ import FormGroup from '../../../componentes/FormGroup';
 import InputLabel from '../../../componentes/InputLabel';
 import ButtonsGroup from '../../../componentes/ButtonsGroup';
 import iconmedicine  from '../../../icons/iconmedicine.png';
+import {withRouter} from 'react-router-dom';
 
-export default class MedicinePag extends React.Component{
+class MedicinePagCreate extends React.Component{
 
     state = {
         name: "",
@@ -44,4 +45,4 @@ export default class MedicinePag extends React.Component{
   }
 }
 
-
+export default withRouter (MedicinePagCreate);
