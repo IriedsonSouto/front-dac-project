@@ -2,22 +2,23 @@ import React from 'react'
 
 export default props => {
 
-    const rows = props.goats.map(goat => {
+    const rows = props.aplications.map(aplication => {
         return(
-            <tr key={goat.id}>
-                <td>{goat.id}</td>
-                <td>{goat.nickname}</td>
-                <td>{goat.brithDay}</td>
-                <td>{goat.gender}</td>
+            <tr key={aplication.id}>
+                <td>{aplication.id}</td>
+                <td>{aplication.aplicationMode}</td>
+                <td>{aplication.medicineId}</td>
+                <td>{aplication.goatId}</td>
+                <td>{aplication.date}</td>
                 <td>
                     <button type="button"   title="Editar"
                             className="btn btn-info"
-                            onClick={e => props.edit(goat.id)}>
+                            onClick={e => props.edit(aplication.id)}>
                             <i className="pi pi-pencil"></i>
                     </button>
                     <button type="button"  title="Excluir"
                             className="btn btn-primary"
-                            onClick={ e => props.delete(goat.id)}>
+                            onClick={ e => props.delete(aplication.id)}>
                             <i className="pi pi-trash"></i>
                     </button>
                 </td>
@@ -30,9 +31,10 @@ export default props => {
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Goat nickname</th>
-                    <th scope="col">Brith Day</th>
-                    <th scope="col">Gender</th>
+                    <th scope="col">Aplication mode</th>
+                    <th scope="col">Medicine ID</th>
+                    <th scope="col">Goat ID</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Options</th>
                 </tr>
             </thead>

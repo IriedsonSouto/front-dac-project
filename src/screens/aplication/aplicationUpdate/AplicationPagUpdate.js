@@ -1,38 +1,54 @@
 import React from 'react';
-import './AplicationPagCreate.css';
 import HeaderGroup from '../../../componentes/HeaderGroup';
 import FormGroup from '../../../componentes/FormGroup';
 import InputLabel from '../../../componentes/InputLabel';
 import ButtonsGroup from '../../../componentes/ButtonsGroup';
 import iconsyringe from '../../../icons/iconsyringe.png';
 import {withRouter} from 'react-router-dom';
+import axios from 'axios';
 
-class AplicationPagCreate extends React.Component{
+class AplicationPagUpdate extends React.Component{
 
-  state = {
-    aplicationMode: "",
-	medicineId: "",
-    goatId: "",
-	date: ""
-  }
+    state = {
+        id: "",
+        aplicationMode: "",
+        medicineId: "",
+        goatId: "",
+        date: "",
+    }
 
 
-  cancel = () => {
-    this.setState({aplicationMode: ""})
-    this.setState({medicineId: ""})
-    this.setState({goatId: ""})
-    this.setState({date: ""})
-  }
+    cancel = () => {
+        this.props.history.push('/aplication');
+    }
 
-  print = () => {
-    console.log(this.state);
-  }
+    update = async () => {
+        await axios.put(`http://localhost:8080/api/aplication/${this.state.id}`,
+        {
+            aplicationMode: this.state.aplicationMode,
+            medicineId: this.state.medicineId,
+            goatId: this.state.goatId,
+            date: this.state.date
+        })
+        .then(response =>
+        {
+            console.log(response);
+            this.props.history.push('/aplication');
+        })
+        .catch(error =>
+        {
+            console.log(error.response);
+        });
+    }
 
   render() {
     return (
-    <div className="Pag">
-        <HeaderGroup title = "Aplication Pag" icon ={iconsyringe} iname="Aplication Image"></HeaderGroup>
+        <div className="Pag">
         <FormGroup>
+            <HeaderGroup title = "aplication Update" icon ={iconsyringe} iname="aplication Image"></HeaderGroup>
+            <InputLabel name="ID:">
+            <input type="text" className="form-control"  id="inputDefault" value = {this.state.id} onChange = {(e) => {this.setState({id: e.target.value})}}/>
+            </InputLabel>
             <InputLabel name="Aplicaion Mode:">
             <input type="text" className="form-control" placeholder="Ex: Subcutaneous" id="inputDefault" value = {this.state.aplicationMode} onChange = {(e) => {this.setState({aplicationMode: e.target.value})}}/>
             </InputLabel>
@@ -45,16 +61,15 @@ class AplicationPagCreate extends React.Component{
             <InputLabel name="Date Aplication:">
             <input type="text" className="form-control" placeholder="DD/MM/YYYY" id="inputDefault" value = {this.state.date} onChange = {(e) => {this.setState({date: e.target.value})}}/>
             </InputLabel>
+            <ButtonsGroup>
+                <button type="button" className="btn btn-primary" onClick={this.update}>Update</button>
+                <button type="button" className="btn btn-warning" onClick={this.cancel}>Cancel</button>
+            </ButtonsGroup>
         </FormGroup>
-        <ButtonsGroup>
-            <button type="button" className="btn btn-success" onClick={this.print}>Create</button>
-            <button type="button" className="btn btn-warning" onClick={this.cancel}>Cancel</button>
-        </ButtonsGroup>
     </div>
     );
   }
 }
 
-export default withRouter(AplicationPagCreate);
-
+export default withRouter(AplicationPagUpdate);
 
