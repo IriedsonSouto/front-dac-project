@@ -82,6 +82,7 @@ class GoatCenterPag extends React.Component{
         {
             console.log(response);
             this.find();
+            this.cancel();
         })
         .catch(error =>
         {
@@ -104,6 +105,7 @@ class GoatCenterPag extends React.Component{
         {
             console.log(response);
             this.find();
+            this.cancel();
         })
         .catch(error =>
         {

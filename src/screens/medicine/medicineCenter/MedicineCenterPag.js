@@ -63,6 +63,7 @@ class MedicinePagCreate extends React.Component{
         {
             console.log(response);
             this.find();
+            this.cancel();
         })
         .catch(error =>
         {
@@ -82,6 +83,7 @@ class MedicinePagCreate extends React.Component{
         {
             console.log(response);
             this.find();
+            this.cancel();
         })
         .catch(error =>
         {

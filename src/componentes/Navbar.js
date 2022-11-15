@@ -2,7 +2,7 @@ import React from 'react';
 import NavbarItem from './NavbarItem';
 import './Navbar.css';
 import logo from '../icons/logogoatmedicine.png'
-import iconhome from '../icons/iconhome.png';
+import iconuser from '../icons/iconuser.png';
 import icongoat from '../icons/icongoat.png';
 import iconmedicine from '../icons/iconmedicine.png';
 import iconsyringe from '../icons/iconsyringe.png';
@@ -21,6 +21,7 @@ function Navbar(props){
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav">
+                <NavbarItem className="barItem" href="/login" label="Users" icon ={iconuser} iname="User" />
                 <NavbarItem className="barItem" href="/goat" label="Goats" icon ={icongoat} iname="Goat" />
                 <NavbarItem className="barItem" href="/medicine" label="Medicines" icon ={iconmedicine} iname="Medicine" />
                 <NavbarItem className="barItem" href="/aplication" label="Aplication" icon ={iconsyringe} iname="Aplication" />

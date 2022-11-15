@@ -91,6 +91,7 @@ create = async () => {
     {
         console.log(response);
         this.find();
+        this.cancel();
     })
     .catch(error =>
     {
@@ -114,6 +115,7 @@ delete = async (aplicationId) => {
     {
         console.log(response);
         this.find();
+        this.cancel();
     })
     .catch(error =>
     {

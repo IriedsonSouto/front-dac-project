@@ -7,6 +7,8 @@ import Medicine from '../screens/medicine/medicineCenter/MedicineCenterPag'
 import MedicinePagUpdate from '../screens/medicine/medicineUpdate/MedicinePagUpdate';
 import Aplication from '../screens/aplication/aplicationCenter/AplicationCenterPag'
 import AplicationPagUpdate from '../screens/aplication/aplicationUpdate/AplicationPagUpdate';
+import UserLoginPag from '../screens/user/userLogin/UserLoginPag';
+import UserRegisterPag from '../screens/user/userRegister/UserRegisterPag';
 
 
 function AppRoutes() {
@@ -19,6 +21,8 @@ function AppRoutes() {
             <Route component={MedicinePagUpdate} path="/medicineupdate/:id" />
             <Route component={Aplication} path="/aplication" />
             <Route component={AplicationPagUpdate} path="/aplicationupdate/:id" />
+            <Route component={UserLoginPag} path="/login" />
+            <Route component={UserRegisterPag} path="/userregister" />
         </BrowserRouter>
     )
 

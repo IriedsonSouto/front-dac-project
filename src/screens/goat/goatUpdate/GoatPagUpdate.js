@@ -17,6 +17,11 @@ class GoatPagUpdate extends React.Component{
         description: ""
     }
 
+    componentDidMount(){
+        const params = this.props.match.params;
+        const id = params.id;
+        this.findById(id);
+    }
 
     cancel = () => {
         this.props.history.push('/goat');
@@ -41,13 +46,33 @@ class GoatPagUpdate extends React.Component{
         });
     }
 
+    findById = (id) => {
+        axios.get(`http://localhost:8080/api/goat/${id}`)
+        .then( response =>
+            {
+                const goat = response.data;
+                const id = goat.id;
+                const nickname = goat.nickname;
+                const gender = goat.gender;
+                const birthDay = goat.birthDay;
+                const description = goat.description;
+
+                this.setState({id, nickname, gender, birthDay, description});
+            }
+        ).catch( error =>
+            {
+                console.log(error.response);
+            }
+        );
+    }
+
   render() {
     return (
         <div className="Pag">
         <FormGroup>
             <HeaderGroup title = "Goat Update" icon ={icongoat} iname="Goat Image"></HeaderGroup>
             <InputLabel name="ID:">
-            <input type="text" className="form-control"  id="inputDefault" value = {this.state.id} onChange = {(e) => {this.setState({id: e.target.value})}}/>
+            <input type="text" disabled= {true} className="form-control"  id="inputDefault" value = {this.state.id} onChange = {(e) => {this.setState({id: e.target.value})}}/>
             </InputLabel>
             <InputLabel name="Nickname:">
             <input type="text" className="form-control" placeholder="Goat name" id="inputDefault" value = {this.state.nickname} onChange = {(e) => {this.setState({nickname: e.target.value})}}/>

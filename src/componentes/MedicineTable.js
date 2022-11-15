@@ -7,7 +7,6 @@ export default props => {
             <tr key={medicine.id}>
                 <td>{medicine.id}</td>
                 <td>{medicine.name}</td>
-                <td>{medicine.description}</td>
                 <td>
                     <button type="button"   title="Editar"
                             className="btn btn-info"
@@ -30,7 +29,6 @@ export default props => {
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Description</th>
                     <th scope="col">Options</th>
                 </tr>
             </thead>
