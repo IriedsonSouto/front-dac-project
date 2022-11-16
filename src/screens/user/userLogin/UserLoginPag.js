@@ -1,7 +1,8 @@
 import React from 'react';
 import '../userRegister/UserRegisterPag.css'
-import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
+import {AuthContext} from '../../main/SessionProvider';
 import HeaderGroup from '../../../componentes/HeaderGroup';
 import CFormGroup from '../../../componentes/CFormGroup';
 import InputLabel from '../../../componentes/InputLabel';
@@ -12,10 +13,8 @@ import iconuser from '../../../icons/iconuser.png';
 class UserLoginPag extends React.Component{
 
     state = {
-        id: "",
-        name: "",
-        email: "",
-        password: ""
+        username: '',
+        password:'',
     }
 
     create = () =>{
@@ -26,16 +25,33 @@ class UserLoginPag extends React.Component{
         this.props.history.push('/');
     }
 
+    login = () =>{
+        this.context.login(
+          this.state.username,
+          this.state.password
+        ).then(user =>
+          {
+            if(user){
+             alert(`Bem vindo, ${user.name}`);
+              this.props.history.push('/viewUser');
+            }else{
+              alert('Login inválido');
+            }
+          }
+          ).catch(error =>
+            {
+              alert('Erro processando autenticação: ', error);
+          });
+    }
+
+
     render() {
         return (
             <div className="row">
                 <CFormGroup className="col-lg-5">
                     <HeaderGroup title = "Goat Center" icon ={iconuser} iname="Goat Image"></HeaderGroup>
                     <InputLabel name="Name:">
-                    <input type="text" className="form-control" placeholder="User name" id="inputDefault" value = {this.state.name} onChange = {(e) => {this.setState({name: e.target.value})}}/>
-                    </InputLabel>
-                    <InputLabel name="Email:">
-                    <input type="text" className="form-control" placeholder="Email" id="inputDefault" value = {this.state.email} onChange = {(e) => {this.setState({email: e.target.value})}}/>
+                    <input type="text" className="form-control" placeholder="User name" id="inputDefault" value = {this.state.username} onChange = {(e) => {this.setState({username: e.target.value})}}/>
                     </InputLabel>
                     <InputLabel name="Password:">
                     <input type="text" className="form-control" placeholder="Password" id="inputDefault" value = {this.state.password} onChange = {(e) => {this.setState({password: e.target.value})}}/>
@@ -51,4 +67,5 @@ class UserLoginPag extends React.Component{
     }
 }
 
+UserLoginPag.contextType = AuthContext;
 export default withRouter(UserLoginPag);
