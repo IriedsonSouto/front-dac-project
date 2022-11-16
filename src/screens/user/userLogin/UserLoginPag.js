@@ -2,7 +2,7 @@ import React from 'react';
 import '../userRegister/UserRegisterPag.css'
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-import {AuthContext} from '../../main/SessionProvider';
+import {AuthContext} from '../../../main/SessionProvider';
 import HeaderGroup from '../../../componentes/HeaderGroup';
 import CFormGroup from '../../../componentes/CFormGroup';
 import InputLabel from '../../../componentes/InputLabel';
