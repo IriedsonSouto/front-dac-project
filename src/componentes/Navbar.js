@@ -6,6 +6,7 @@ import iconuser from '../icons/iconuser.png';
 import icongoat from '../icons/icongoat.png';
 import iconmedicine from '../icons/iconmedicine.png';
 import iconsyringe from '../icons/iconsyringe.png';
+import iconlog from '../icons/iconlog.png';
 import {AuthConsumer} from "../main/SessionProvider";
 
 
@@ -26,7 +27,7 @@ function Navbar(props){
                 <NavbarItem render={props.isAuthenticated} className="barItem" href="/goat" label="Goats" icon ={icongoat} iname="Goat" />
                 <NavbarItem render={props.isAuthenticated} className="barItem" href="/medicine" label="Medicines" icon ={iconmedicine} iname="Medicine" />
                 <NavbarItem render={props.isAuthenticated} className="barItem" href="/aplication" label="Aplication" icon ={iconsyringe} iname="Aplication" />
-                <NavbarItem render={props.isAuthenticated} className="barItem" href = "/login" onClick={props.logout} label="Sair" icon ={iconuser} iname="User" />
+                <NavbarItem render={props.isAuthenticated} className="barItem" href = "/login" onClick={props.logout} label="Logout" icon ={iconlog} iname="Logout" />
             </ul>
             </div>
         </div>

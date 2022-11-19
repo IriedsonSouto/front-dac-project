@@ -31,15 +31,17 @@ class UserLoginPag extends React.Component{
           this.state.password
         ).then(user =>
           {
+            console.log("deu bom")
             if(user){
              alert(`Bem vindo, ${user.name}`);
-              this.props.history.push('/viewUser');
+              this.props.history.push('/goat');
             }else{
               alert('Login inválido');
             }
           }
           ).catch(error =>
             {
+              console.log("deu ruin")
               alert('Erro processando autenticação: ', error);
           });
     }
@@ -57,7 +59,7 @@ class UserLoginPag extends React.Component{
                     <input type="text" className="form-control" placeholder="Password" id="inputDefault" value = {this.state.password} onChange = {(e) => {this.setState({password: e.target.value})}}/>
                     </InputLabel>
                     <ButtonsGroup>
-                    <button type="button" class="btn btn-info">Login</button>
+                    <button type="button" class="btn btn-info" onClick={this.login}>Login</button>
                     <button type="button" className="btn btn-success" onClick={this.create}>Register</button>
                     <button type="button" className="btn btn-danger" onClick={this.cancel}>Cancel</button>
                     </ButtonsGroup>
